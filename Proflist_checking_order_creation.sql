@@ -1,12 +1,12 @@
-/*Вывести 5 последних записей с Id customer, firstname, lastname, email and phone
-из таблиц customer и address*/
+/*Р’С‹РІРµСЃС‚Рё 5 РїРѕСЃР»РµРґРЅРёС… Р·Р°РїРёСЃРµР№ СЃ Id customer, firstname, lastname, email and phone
+РёР· С‚Р°Р±Р»РёС† customer Рё address*/
 select customer.id_customer, customer.firstname, customer.lastname, 
 customer.email, address.phone, address.city, address.address1 from customer
 inner join address on customer.id_customer = address.id_customer 
 ORDER BY id_customer DESC LIMIT 10
 
 
-/*Вывести 5 последних записей из таблиц cart и cart_product с Id_cart, id_customer, 
+/*Р’С‹РІРµСЃС‚Рё 5 РїРѕСЃР»РµРґРЅРёС… Р·Р°РїРёСЃРµР№ РёР· С‚Р°Р±Р»РёС† cart Рё cart_product СЃ Id_cart, id_customer, 
 id_product, id_product_attribute, quantity */
 select cart.id_cart, cart.id_customer, cart_product.id_product, cart_product.id_product_attribute, 
 cart_product.quantity from cart
@@ -14,11 +14,11 @@ inner join cart_product on cart_product.id_cart = cart.id_cart
 order by id_cart desc limit 5
 
 
-/*Номер заказа взять из response в Postman (request "Create order"). 
- * Вывести запись из response в Postman (create order) из таблиц orders 
- * и order_datail с Id_order, product_id, 
-id_customer, id_cart, product_price, product_quantity, total_paid. Проверить условие: 
-цена*количество=сумма. */
+/*РќРѕРјРµСЂ Р·Р°РєР°Р·Р° РІР·СЏС‚СЊ РёР· response РІ Postman (request "Create order"). 
+ * Р’С‹РІРµСЃС‚Рё Р·Р°РїРёСЃСЊ РёР· response РІ Postman (create order) РёР· С‚Р°Р±Р»РёС† orders 
+ * Рё order_datail СЃ Id_order, product_id, 
+id_customer, id_cart, product_price, product_quantity, total_paid. РџСЂРѕРІРµСЂРёС‚СЊ СѓСЃР»РѕРІРёРµ: 
+С†РµРЅР°*РєРѕР»РёС‡РµСЃС‚РІРѕ=СЃСѓРјРјР°. */
 
 SELECT orders.id_order, order_detail.product_id, orders.id_customer, orders.id_cart, 
 order_detail.product_price, order_detail.product_quantity, orders.total_paid   
@@ -28,8 +28,8 @@ where  product_price * product_quantity = total_paid and orders.id_order = 557
 ORDER BY id_order DESC LIMIT 5
 
 
-/*Вывести последние 10 записей с id_order lastname, firstname, phone, product_name, unit_price_tax_incl, product_quantity, total_paid
- * из таблиц customer, address, orders, order_detail */
+/*Р’С‹РІРµСЃС‚Рё РїРѕСЃР»РµРґРЅРёРµ 10 Р·Р°РїРёСЃРµР№ СЃ id_order lastname, firstname, phone, product_name, unit_price_tax_incl, product_quantity, total_paid
+ * РёР· С‚Р°Р±Р»РёС† customer, address, orders, order_detail */
 
 select orders.id_order, customer.firstname, customer.lastname, address.phone, 
 order_detail.product_name, order_detail.unit_price_tax_incl, 
